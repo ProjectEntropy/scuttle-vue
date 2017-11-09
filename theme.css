@@ -1,0 +1,42 @@
+body, input, button, p, li, h1, h2, h3, h4, h5, h6, textarea {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+a:link, a:visited, a:active {
+  color: #333;
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: black;
+}
+
+.navbar {
+  background: #eee;
+  background: linear-gradient(#fff, #eee);
+  border-bottom: 1px solid #ddd;
+}
+
+.screen {
+  background: #f5f5f5;
+}
+
+.scroller__wrapper {
+  max-width: 580px;
+}
+
+input, textarea {
+  border: 1px solid #eee;
+}
+
+.message {
+  border: 1px solid #eee;
+  padding: .5em;
+  margin-top: .2em;
+  background: white;
+}
+
+.message_content {
+  border-top: 1px solid #eee;
+}

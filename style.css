@@ -1,0 +1,346 @@
+input.search {
+  margin-right: 5px;
+  height: 14px;
+  width: 96px;
+  background: #f5f5f5;
+}
+
+form.search {
+  float: right;
+}
+
+button.btn-search {
+  margin-right: 1em;
+}
+
+.navbar {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  margin: 0;
+  padding-top: .6em;
+  padding-bottom: .2em;
+  left: 0; right: 0;
+  top: 0;
+}
+
+.navbar .internal {
+  max-width: 620px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar li {
+  float: left;
+  padding-left: 1em;
+  list-style-type: none;
+}
+
+* {
+  word-wrap: break-word;
+}
+
+pre {
+    height: auto;
+    max-height: 200px;
+    overflow: auto;
+    background-color: #eeeeee;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.2em;
+  margin-top: .35ex;
+}
+
+p {
+  margin-top: .35ex;
+}
+
+hr {
+  border: solid #eee;
+  clear: both;
+  border-width: 1px 0 0;
+  height: 0;
+  margin-bottom: .9em;
+}
+
+.screen {
+  width: 100%;
+  position: absolute;
+  top: 2.5em; bottom: 0;
+  left: 0; right: 0;
+  overflow-y: hidden;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-height:0px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  min-height:0px;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.expand {
+  justify-content: space-between;
+}
+
+.scroll-y {
+  overflow-y: auto;
+  min-height: 0px;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  min-width: 0px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.wide {
+  width: 100%;
+}
+
+/* scrolling feeds, threads */
+
+.scroller {
+  width: 100%;
+  flex: 1;
+}
+
+.scroller__content {
+  width: 100%;
+}
+
+.scroller__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* compose */
+
+.compose {
+  margin-top: .5em;
+}
+
+.theme {
+  height: 20em;
+  width: 100%;
+}
+
+textarea {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* messages */
+
+.message {
+  position: relative;
+  flex-basis: 0;
+}
+
+.message_content {
+  margin-top: 5px;
+  padding-top: 3px;
+}
+
+.message_content--mini div > span {
+  display: inline-block;
+}
+
+.message_meta {
+  margin-left: auto;
+}
+
+.message_meta > * {
+  margin-left: .5ex;
+}
+
+.message_actions {
+  float: right;
+}
+
+.message img {
+  max-width: 100%;
+}
+
+.message > .title > .avatar {
+  margin-left: 0;
+}
+
+.message_content {
+  padding: .5ex;
+}
+
+.actions > :not(:last-child) {
+  border-right: 2px solid #eee;
+  padding-right: 5px;
+}
+
+.emoji {
+  height: 1em;
+  width: 1em;
+  vertical-align: top;
+}
+
+
+/* -- suggest box */
+
+.suggest-box > * {
+  display: block;
+}
+
+.suggest-box ul {
+  padding: 0;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.suggest-box .selected {
+  background: #ddd;
+}
+
+.suggest-box {
+  width: max-content;
+  background: white;
+}
+
+/* emoji */
+.suggest-box img {
+  height: 20px;
+  width: 20px;
+}
+
+/* avatar */
+
+.avatar--profile {
+  width: 5em;
+  height: 5em;
+  vertical-align: top;
+}
+.avatar--thumbnail {
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: .5ex;
+  vertical-align: top;
+}
+
+.avatar--tiny {
+  width: 26px;
+  height: 26px;
+}
+.profile {
+  padding: .5ex;
+}
+
+.profile__info {
+  margin-left: .5em;
+}
+
+/* lightbox - used in message-confirm */
+
+.lightbox {
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  width: 90%;
+  max-width: 600px;
+  z-index: 5;
+}
+
+/* searchprompt */
+
+.searchprompt {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  float: left;
+  padding: .5em;
+  width: 85%;
+}
+
+.header__search {
+  position: absolute;
+  bottom: .5em;
+  left: .5em;
+}
+
+.header__profile {
+  margin: .7em;
+}
+
+/* TextNodeSearcher highlights */
+
+.highlight {
+  background: yellow;
+}
+
+/* avatar editor */
+
+.hypercrop__canvas {
+  width: 100%;
+}
+
+/* gitssb */
+
+.git-table-wrapper {
+  max-height: 12em;
+  overflow: auto;
+  word-break: break-all;
+  margin: 1em 0;
+}
+
+.git-table-wrapper table {
+  width: 100%;
+}
+
+/* --- network status --- */
+
+.status {
+  width: 1em;
+  height: 1em;
+  margin: .5em;
+  background: green;
+}
+
+.error {
+  background: red;
+}
+
+/* progress bar */
+
+.hyperprogress__bar {
+  background: darkgrey;
+}
+.hyperprogress__liquid {
+  background: lightblue;
+}
+
+
