@@ -65,7 +65,8 @@ var map2 = {
 
 //union with this query...
 
-var names = NAMES = []
+var names = []
+var NAMES = names
 function update(name) {
   var n = names.find(function (e) {
     return e.id == name.id && e.name == e.name

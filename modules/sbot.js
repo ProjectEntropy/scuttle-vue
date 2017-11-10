@@ -29,7 +29,8 @@ var createFeed   = require('ssb-feed')
 var keys = require('../keys')
 var ssbKeys = require('ssb-keys')
 
-var cache = CACHE = {}
+var CACHE = {}
+var cache = CACHE
 
 module.exports = {
   needs: {
@@ -96,8 +97,8 @@ module.exports = {
 
     return {
       connection_status: connection_status,
-      sbot_blobs_add: rec.sink(function (cb)  { 
-        return sbot.blobs.add(cb) 
+      sbot_blobs_add: rec.sink(function (cb)  {
+        return sbot.blobs.add(cb)
       }),
       sbot_links: rec.source(function (query) {
         return sbot.links(query)
@@ -175,4 +176,3 @@ module.exports = {
     }
   }
 }
-
