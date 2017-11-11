@@ -14,7 +14,8 @@ exports.needs = {
 }
 
 exports.gives = {
-  connection_status: true, avatar_image: true
+  connection_status: true,
+  avatar_image: true
 }
 
 function isFunction (f) {
@@ -74,7 +75,6 @@ exports.create = function (api) {
               (a.by === a.id && avatars[a.id].by != self_id)
           )
             avatars[a.id] = a
-
         })
       )
     },
@@ -83,9 +83,8 @@ exports.create = function (api) {
       if(classes && 'string' === typeof classes) classes = '.avatar--'+classes
 
       function gen (id) {
-        if(cache[id]) return h('img', {src: cache[id]})
-        var img = visualize(new Buffer(author.substring(1), 'base64'), 256)
-        cache[id] = img.src
+        var img =  h('img', {src: "derp"})
+
         return img
       }
 
@@ -104,4 +103,3 @@ exports.create = function (api) {
     }
   }
 }
-

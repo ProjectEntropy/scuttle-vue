@@ -27,61 +27,15 @@ Vue.use(DepjectAPI)
 import SourceObserver from './plugins/source_observer'
 Vue.use(SourceObserver)
 
-
-// .app[0]()
-// console.log("depject_api", depject_api)
-// window.depject_api = depject_api
-
-// SSB
-// var pull = require('pull-stream')
-// var ssbKeys = require('ssb-keys')
-// var ref = require('ssb-ref')
-// var Reconnect = require('pull-reconnect')
-// var path = require('path')
-// var config = require('ssb-config/inject')(process.env.ssb_appname)
-// config.keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
-//
-// var createClient = require('ssb-client')
-// var createConfig = require('ssb-config/inject')
-// var createFeed   = require('ssb-feed')
-// var keys = require('../keys')
-// var ssbKeys = require('ssb-keys')
-// var pull = require('pull-stream')
-//
-// var CACHE = {}
-// var cache = CACHE
-//
-// var client = require('ssb-client')
-
-// client(keys, {
-//   manifest: require('../manifest.json'),
-//   remote: require('../config')().remote,
-//   caps: config.caps
-// }, function (err, _sbot) {
-//   if(err) {
-//     console.log(err)
-//
-//     return
-//   }
-//
-//   window.sbot = _sbot
-//
-//   sbot.on('closed', function (e) {
-//     // sbot = null
-//     console.log("closed sbot")
-//     console.log(e)
-//   })
+// sbot FlumeDB Interface
+// import ScuttleFlume from './plugins/scuttle_flume'
+// Vue.use(ScuttleFlume)
 
 
-  var vm = new Vue({ // eslint-disable-line no-new
-    el: '#app',
-    router,
-    components: { App, Hello },
-    template: '<App/>'
-  })
-  window.vm = vm
-// })
-
-
-
-// })
+var vm = new Vue({ // eslint-disable-line no-new
+  el: '#app',
+  router,
+  components: { App, Hello },
+  template: '<App/>'
+})
+window.vm = vm

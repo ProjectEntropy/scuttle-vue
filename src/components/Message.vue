@@ -1,7 +1,7 @@
 
 <template>
   <div class="media">
-    <img class="d-flex mr-3" :alt="author">
+    <img class="d-flex mr-3" :alt="author" :src="image_url">
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
 
@@ -28,12 +28,17 @@ export default {
   props: ['message'],
   data () {
     return {
-      author: "..."
+      author: "...",
+      image_url: "http://via.placeholder.com/90x90"
     }
   },
   methods: {
     setAuthor(err, a){
-      this.author = nn(a[0]).name()
+      this.author = nn( a[0] ).name()
+    },
+    set_image_url(url)
+    {
+      this.image_url = url
     },
     content_text()
     {
@@ -41,8 +46,14 @@ export default {
     }
   },
   created() {
+    // author name
     this.$depject_api.signifier[0](
       this.message.value.author(), this.setAuthor
+    )
+
+    // image_url
+    this.$depject_api.avatar_image[0](
+      this.message.value.author(), "profile", this.set_image_url
     )
   }
 }
