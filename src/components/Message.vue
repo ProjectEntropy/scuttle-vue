@@ -1,9 +1,9 @@
 
 <template>
   <div class="media">
-    <img class="d-flex mr-3" :alt="author.name()">
+    <img class="d-flex mr-3" :alt="author">
     <div class="media-body">
-      <h5 class="mt-0">{{ author.name() }}</h5>
+      <h5 class="mt-0">{{ author }}</h5>
       {{ message.value.content.text() }}
 
       <p>
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     setAuthor(err, a){
-      this.author = nn(a[0])
+      this.author = nn(a[0]).name()
     }
   },
   created() {
