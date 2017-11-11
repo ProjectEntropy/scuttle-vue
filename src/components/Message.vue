@@ -4,7 +4,9 @@
     <img class="d-flex mr-3" :alt="author">
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
-      {{ message.value.content.text() }}
+
+      <span v-html="content_text()"></span>
+
 
       <p>
         {{ message.value.content.type() }}
@@ -18,7 +20,8 @@
 // var pull = require('pull-stream')
 import Rx from 'rxjs/RX'
 import { Observable } from 'rxjs/Observable'
-const nn = require('nevernull');
+const nn = require('nevernull')
+const md = require('ssb-markdown')
 
 export default {
   name: 'message',
@@ -31,10 +34,16 @@ export default {
   methods: {
     setAuthor(err, a){
       this.author = nn(a[0]).name()
+    },
+    content_text()
+    {
+      return md.block( this.message.value.content.text() )
     }
   },
   created() {
-    this.$depject_api.signifier[0](this.message.value.author(), this.setAuthor)
+    this.$depject_api.signifier[0](
+      this.message.value.author(), this.setAuthor
+    )
   }
 }
 
