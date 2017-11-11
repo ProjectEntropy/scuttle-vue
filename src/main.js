@@ -73,12 +73,13 @@ Vue.use(SourceObserver)
 //   })
 
 
-  new Vue({ // eslint-disable-line no-new
+  var vm = new Vue({ // eslint-disable-line no-new
     el: '#app',
     router,
     components: { App, Hello },
     template: '<App/>'
   })
+  window.vm = vm
 // })
 
 
