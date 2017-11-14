@@ -1,7 +1,8 @@
 
 <template>
   <div class="media">
-    {{ profile_image }}
+    <img :src="profile_image">
+  </img>
 
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
@@ -31,15 +32,23 @@ export default {
     return {
       author: "...",
       image_url: "http://via.placeholder.com/90x90",
-      api: this.$depject_api
+      api: this.$depject_api,
+
     }
   },
   subscriptions: function () {
-    return {
-      profile_image: this.$observers.cb_obs(
-        this.api.avatar_image[0]
-      )(this.message.value.content.author(), 'tiny', this)
-    }
+    // var obj = {
+    // debugger
+
+    // profile_image: Rx.Observable.bindCallback( this.api.avatar_image[0].bind(this) )('@ywmhh72dezK+GrK+/QiYOJ0dKWVuGA/AkpOB/wrWTgk=.ed25519')
+    // }
+    // // debugger
+    //
+    // return obj
+  },
+  computed: {
+    profile_image: function(){
+      return vm.$depject_api.blob_url[0]("&aIbhv+YRJ85BAWzI1oCwa9716L5pdvMliMdh4KOT+SE=.sha256") }
   },
   methods: {
     setAuthor(err, a){
