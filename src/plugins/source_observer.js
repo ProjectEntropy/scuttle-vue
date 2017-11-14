@@ -16,6 +16,9 @@ SourceObserver.install = function(Vue, options){
           pull.drain(msg => observer.next(msg))
         )
       }).scan((accumulator, newMsg) => [nn(newMsg), ...accumulator], [])
+    },
+    cb_obs(f){
+      return Rx.Observable.bindCallback(f)
     }
   }
 

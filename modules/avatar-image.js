@@ -83,8 +83,9 @@ exports.create = function (api) {
       if(classes && 'string' === typeof classes) classes = '.avatar--'+classes
 
       function gen (id) {
-        var img =  h('img', {src: "derp"})
-
+        if(cache[id]) return h('img', {src: cache[id]})
+        var img = visualize(new Buffer(author.substring(1), 'base64'), 256)
+        cache[id] = img.src
         return img
       }
 

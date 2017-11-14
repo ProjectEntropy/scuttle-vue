@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Hello
+      name: 'home',
+      component: Public
     },
     {
       path: '/public',

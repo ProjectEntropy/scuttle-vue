@@ -1,7 +1,8 @@
 
 <template>
   <div class="media">
-    <img class="d-flex mr-3" :alt="author" :src="image_url">
+    {{ profile_image }}
+
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
 
@@ -29,32 +30,36 @@ export default {
   data () {
     return {
       author: "...",
-      image_url: "http://via.placeholder.com/90x90"
+      image_url: "http://via.placeholder.com/90x90",
+      api: this.$depject_api
+    }
+  },
+  subscriptions: function () {
+    return {
+      profile_image: this.$observers.cb_obs(
+        this.api.avatar_image[0]
+      )(this.message.value.content.author(), 'tiny', this)
     }
   },
   methods: {
     setAuthor(err, a){
+      if(a[0] == null)
+        return
       this.author = nn( a[0] ).name()
     },
-    set_image_url(url)
-    {
-      this.image_url = url
-    },
+    // Get markdown formatted version of message content
     content_text()
     {
       return md.block( this.message.value.content.text() )
     }
   },
-  created() {
+  updated() {
     // author name
     this.$depject_api.signifier[0](
       this.message.value.author(), this.setAuthor
     )
 
-    // image_url
-    this.$depject_api.avatar_image[0](
-      this.message.value.author(), "profile", this.set_image_url
-    )
+
   }
 }
 
