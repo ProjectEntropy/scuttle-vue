@@ -8,13 +8,16 @@
         <span class="text-muted">
           {{ message.value.content.type() }}
           <strong v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</strong>
+          {{ message.value.timestamp() | formatDate}}
+          <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>
         </span>
       </h5>
 
-      <p v-html="content_text()"></p>
-
+      <p v-html="content_text_md()"></p>
+      
+      <pre v-if="raw" v-html="content_json()"></pre>
     </div>
-
+    
     {{ relatedMessages.length }}
     <!-- <message v-for="mess in relatedMessages" :message="mess">
     </message> -->
@@ -37,7 +40,8 @@ export default {
     return {
       author: "...",
       image_url: "http://via.placeholder.com/90x90",
-      relatedMessages: []
+      relatedMessages: [],
+      raw: false
     }
   },
 
@@ -56,8 +60,18 @@ export default {
         this.relatedMessages = a.every(function(e){ return nn(e) })
     },
 
-    // Get markdown formatted version of message content
+    // Get raw pretty printed json version of message
+    content_json()
+    {
+      return JSON.stringify(this.message.value(), null, 2)
+    },
+    // Get text formatted version of message content
     content_text()
+    {
+      return this.message.value.content.text()
+    },
+    // Get markdown formatted version of message content
+    content_text_md()
     {
       return md.block( this.message.value.content.text() )
     }

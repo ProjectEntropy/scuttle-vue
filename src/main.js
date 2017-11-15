@@ -26,6 +26,14 @@ Vue.use(DepjectAPI)
 import SourceObserver from './plugins/source_observer'
 Vue.use(SourceObserver)
 
+import moment from 'moment'
+
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(value).format('YYYY/MM/DD hh:mm')
+  }
+})
+
 var vm = new Vue({ // eslint-disable-line no-new
   el: '#app',
   router,

@@ -14,7 +14,7 @@
   export default {
     data() {
       return {
-        list: [],
+        list: []
       }
     },
     methods: {
@@ -27,11 +27,11 @@
           this.list = this.list.concat(temp);
           $state.loaded()
         }, 1000)
-      },
+      }
     },
     components: {
-      InfiniteLoading,
-    },
+      InfiniteLoading
+    }
   }
 </script>
 

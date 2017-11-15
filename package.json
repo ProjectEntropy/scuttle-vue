@@ -42,6 +42,7 @@
     "kvgraph": "^0.1.0",
     "map-filter-reduce": "^3.0.3",
     "minimist": "^1.2.0",
+    "moment": "^2.19.2",
     "multiblob": "^1.12.0",
     "muxrpcli": "^1.1.0",
     "nevernull": "^1.3.0",

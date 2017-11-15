@@ -53,7 +53,9 @@ module.exports = {
     sbot_stream: true,
     sbot_friends_get: true,
     sbot_signs_get: true,
-    sbot_relatedMessages_get: true
+    sbot_relatedMessages_get: true,
+    sbot_the_log: true,
+    sbot_getLatest: true
   },
 
   create: function (api) {
@@ -117,6 +119,12 @@ module.exports = {
             CACHE[e.key] = CACHE[e.key] || e.value
           })
         )
+      }),
+      sbot_the_log: rec.source(function (opts) {
+        return sbot.createLogStream(opts)
+      }),
+      sbot_getLatest: rec.source(function (opts) {
+        return sbot.getLatest(opts)
       }),
       sbot_user_feed: rec.source(function (opts) {
         return sbot.createUserStream(opts)
