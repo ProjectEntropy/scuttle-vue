@@ -1,22 +1,23 @@
 
 <template>
-  <div class="media mt-3 col-sm-8">
+  <div class="media mt-3 col-sm-12 message">
     <img class="pr-3 rounded " style="max-width: 60px; " :src="image_url">
-    <div class="media-body col-sm-9">
-      <h5 class="mt-0 text-truncate">{{ author }}</h5>
+    <div class="media-body">
+      <h5 class="mt-0">
+        {{ author }}
+        <span class="text-muted">
+          {{ message.value.content.type() }}
+        </span>
+      </h5>
 
-      <span v-if="" class="text-truncate" v-html="content_text()"></span>
+      <p v-html="content_text()"></p>
 
-      <p>
-        {{ message.value.content.type() }}
-      </p>
     </div>
 
-    {{ relatedMessages.length }} replies:
+    {{ relatedMessages.length }}
     <message v-for="message in relatedMessages" :message="message">
     </message>
 
-    <hr/>
   </div>
 </template>
 
@@ -47,15 +48,11 @@ export default {
     },
 
     setRelatedMessages(err, a){
-
       if(err) {
         console.log('message.vue.setRelatedMessages.err', err)
       }
-      // console.log(a)
-
-      // debugger
       if(a)
-        this.relatedMessages = a.every(function(e){ nn(e) })
+        this.relatedMessages = a.every(function(e){ return nn(e) })
     },
 
     // Get markdown formatted version of message content
@@ -70,9 +67,10 @@ export default {
       this.message.value.author(), this.setAuthor
     )
 
-    this.$depject_api.getThread[0](
-      this.message.key(), this.setRelatedMessages
-    )
+    if(this.message.key())
+      this.$depject_api.getThread[0](
+        this.message.key(), this.setRelatedMessages
+      )
 
     this.image_url = this.$depject_api.avatar_image[0](
       this.message.value.author()
@@ -83,4 +81,12 @@ export default {
 </script>
 
 <style scoped>
+.media-body p{
+
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+.message{
+
+}
 </style>
