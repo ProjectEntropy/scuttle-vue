@@ -7,6 +7,7 @@
         {{ author }}
         <span class="text-muted">
           {{ message.value.content.type() }}
+          <strong v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</strong>
         </span>
       </h5>
 
@@ -68,10 +69,11 @@ export default {
     )
 
     if(this.message.key())
+    {
       this.$depject_api.getThread[0](
         this.message.key(), this.setRelatedMessages
       )
-
+    }
     this.image_url = this.$depject_api.avatar_image[0](
       this.message.value.author()
     )
