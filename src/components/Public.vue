@@ -18,7 +18,9 @@ export default {
   subscriptions: function () {
     return {
       messages: this.$observers.accumulated_observable(
-        this.$depject_api.sbot_log[0]( { limit: 10, reverse: true, live: true } )
+        this.$depject_api.sbot_log[0](
+          { limit: 10, reverse: true, live: true }
+        )
       )
     }
   }
@@ -26,5 +28,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
