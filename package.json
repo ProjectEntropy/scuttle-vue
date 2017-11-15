@@ -8,7 +8,8 @@
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -o -c 1 -a localhost",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] -e src/main.js |  > dist/build.js",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "browserify": {
     "transform": [
@@ -84,6 +85,7 @@
     "text-node-searcher": "^1.1.1",
     "visualize-buffer": "0.0.1",
     "vue": "^2.0.1",
+    "vue-gh-pages": "^1.6.4",
     "vue-router": "^3.0.1",
     "vue-rx": "^5.0.0",
     "xstream-from-pull-stream": "^1.1.0"

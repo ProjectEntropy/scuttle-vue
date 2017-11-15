@@ -1,12 +1,11 @@
 
 <template>
   <div id="public" class="col-md-12">
-    <h2>Public</h2>
+    <h2>Public feed</h2>
 
-    <div class="card">
-      <Message v-for="message in messages" :message="message">
-      </Message>
-    </div>
+    <Message v-for="message in messages" :message="message">
+    </Message>
+
   </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
     return {
       messages: this.$observers.accumulated_observable(
         this.$depject_api.sbot_log[0](
-          { limit: 10, reverse: true, live: true }
+          { limit: 20, reverse: true, live: true }
         )
       )
     }

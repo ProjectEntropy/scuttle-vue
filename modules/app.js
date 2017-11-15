@@ -11,7 +11,7 @@ module.exports = {
 
   create: function (api) {
     return function () {
-      document.head.appendChild(h('style', require('../style.css.json')))
+      // document.head.appendChild(h('style', require('../style.css.json')))
 
       function hash() {
         return window.location.hash.substring(1)
@@ -34,7 +34,7 @@ module.exports = {
       var search = h('input.search', {placeholder: 'Search'})
 
       document.body.appendChild(h('div.navbar',
-        h('div.internal', 
+        h('div.internal',
           h('li', h('a', {href: '#' + id}, api.avatar_image(id, 'tiny'))),
           h('li', h('a', {href: '#' + id}, api.avatar_name(id))),
           h('li', h('a', {href: '#'}, 'Public')),
@@ -55,5 +55,3 @@ module.exports = {
     }
   }
 }
-
-

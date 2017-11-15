@@ -4,7 +4,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Public from './components/Public.vue'
-import Hello from './components/Hello.vue'
 
 // Routing
 import router from './router'
@@ -23,19 +22,14 @@ Vue.use(VueRx, {
 import DepjectAPI from './plugins/depject_api'
 Vue.use(DepjectAPI)
 
-// Pull source observable
+// Observable adapters for pull-streams etc
 import SourceObserver from './plugins/source_observer'
 Vue.use(SourceObserver)
-
-// sbot FlumeDB Interface
-// import ScuttleFlume from './plugins/scuttle_flume'
-// Vue.use(ScuttleFlume)
-
 
 var vm = new Vue({ // eslint-disable-line no-new
   el: '#app',
   router,
-  components: { App, Hello },
+  components: { App },
   template: '<App/>'
 })
 window.vm = vm

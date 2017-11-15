@@ -28,5 +28,3 @@ module.exports = function () {
     blobsUrl: blobsUrl
   }
 }
-
-

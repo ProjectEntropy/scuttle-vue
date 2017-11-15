@@ -1,11 +1,11 @@
 
 <template>
   <div class="media">
-    <img class="mr-3 rounded" style="max-width: 60px; " :src="image_url">
-    <div class="media-body">
-      <h5 class="mt-0">{{ author }}</h5>
-
-      <span v-html="content_text()"></span>
+    <img class="mr-3 rounded " style="max-width: 60px; " :src="image_url">
+    <div class="media-body col-sm-9">
+      <h5 class="mt-0 text-truncate">{{ author }}</h5>
+      
+      <span v-if="" class="text-truncate" v-html="content_text()"></span>
 
       <p>
         {{ message.value.content.type() }}
