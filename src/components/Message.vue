@@ -1,7 +1,7 @@
 
 <template>
   <div class="media">
-    <img :src="image_url"></img>
+    <img :src="image_url" style="max-width: 80px"></img>
 
 
     <div class="media-body">
@@ -46,11 +46,7 @@ export default {
       this.author = nn( a[0] ).name()
     },
 
-    set_image_url(err, a){
-      console.log("Set image URL")
-      console.log(err, a)
-      // this.image_url = a
-    },
+
 
     // Get markdown formatted version of message content
     content_text()
@@ -64,10 +60,8 @@ export default {
       this.message.value.author(), this.setAuthor
     ),
 
-    // this.$depject_api.avatar[0]("@TXKFQehlyoSn8UJAIVP/k2BjFINC591MlBC2e2d24mA=.ed25519")}
-    // this.image_url = "face"
     this.image_url = this.$depject_api.avatar_image[0](
-      this.message.value.author(), this.set_image_url, this.set_image_url
+      this.message.value.author()
     )
   }
 }
