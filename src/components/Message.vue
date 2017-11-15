@@ -16,8 +16,8 @@
     </div>
 
     {{ relatedMessages.length }}
-    <message v-for="message in relatedMessages" :message="message">
-    </message>
+    <!-- <message v-for="mess in relatedMessages" :message="mess">
+    </message> -->
 
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
   white-space: wrap;
   text-overflow: ellipsis;
 }
-.message{
+/* .message{
 
-}
+} */
 </style>
