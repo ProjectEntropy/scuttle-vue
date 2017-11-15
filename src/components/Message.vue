@@ -4,7 +4,7 @@
     <img class="mr-3 rounded " style="max-width: 60px; " :src="image_url">
     <div class="media-body col-sm-9">
       <h5 class="mt-0 text-truncate">{{ author }}</h5>
-      
+
       <span v-if="" class="text-truncate" v-html="content_text()"></span>
 
       <p>
@@ -42,20 +42,14 @@ export default {
     },
 
     setRelatedMessages(err, a){
-      debugger
+      // debugger
       if(err) {
         console.log('message.vue.setRelatedMessages.err', err)
       }
       if(a === null) { return }
 
-      debugger
-      this.relatedMessages = a[0]
-    },
-
-    set_image_url(err, a){
-      console.log("Set image URL")
-      console.log(err, a)
-      // this.image_url = a
+      // debugger
+      this.relatedMessages = a
     },
 
     // Get markdown formatted version of message content
@@ -70,7 +64,7 @@ export default {
       this.message.value.author(), this.setAuthor
     )
 
-    this.$depject_api.sbot_relatedMessages_get[0](
+    this.$depject_api.getThread[0](
       this.message.key(), this.setRelatedMessages
     )
 

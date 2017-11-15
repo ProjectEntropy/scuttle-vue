@@ -30,32 +30,34 @@ exports.needs = {
   sbot_links: 'first'
 }
 
-exports.gives = 'screen_view'
-
+exports.gives = {
+  "screen_view": true,
+  "getThread": true
+}
 
 exports.create = function (api) {
 
-  function getThread (root, cb) {
-    //in this case, it's inconvienent that panel only takes
-    //a stream. maybe it would be better to accept an array?
+  return {
+    getThread: function (root, cb) {
+      //in this case, it's inconvienent that panel only takes
+      //a stream. maybe it would be better to accept an array?
+      api.sbot_get(root, function (err, value) {
+        if (err) return cb(err)
+        var msg = {key: root, value: value}
 
-    api.sbot_get(root, function (err, value) {
-      if (err) return cb(err)
-      var msg = {key: root, value: value}
+        pull(
+          api.sbot_links({rel: 'root', dest: root, values: true, keys: true}),
+          pull.collect(function (err, ary) {
+            if(err) return cb(err)
+            ary.unshift(msg)
+            cb(null, ary)
+          })
+        )
+      })
 
-      pull(
-        api.sbot_links({rel: 'root', dest: root, values: true, keys: true}),
-        pull.collect(function (err, ary) {
-          if(err) return cb(err)
-          ary.unshift(msg)
-          cb(null, ary)
-        })
-      )
-    })
+    },
 
-  }
-
-  return function (id) {
+    screen_view: function(id) {
     if(ref.isMsg(id)) {
       var meta = {
         type: 'post',
@@ -124,4 +126,5 @@ exports.create = function (api) {
       return div
     }
   }
+}
 }
