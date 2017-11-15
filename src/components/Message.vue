@@ -1,9 +1,7 @@
 
 <template>
   <div class="media">
-    <img :src="image_url" style="max-width: 80px"></img>
-
-
+    <img class="mr-3 rounded" style="max-width: 60px; " :src="image_url">
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
 
@@ -13,6 +11,7 @@
         {{ message.value.content.type() }}
       </p>
     </div>
+    <hr/>
   </div>
 </template>
 
@@ -33,20 +32,12 @@ export default {
       image_url: "http://via.placeholder.com/90x90"
     }
   },
-  computed: {
-    // profile_image: function(){
-    //   // Get blob for about image
-    //   // return this.$depject_api.avatar[0]("@TXKFQehlyoSn8UJAIVP/k2BjFINC591MlBC2e2d24mA=.ed25519")}
-    // }
-  },
   methods: {
     setAuthor(err, a){
       if(a[0] == null)
         return
       this.author = nn( a[0] ).name()
     },
-
-
 
     // Get markdown formatted version of message content
     content_text()

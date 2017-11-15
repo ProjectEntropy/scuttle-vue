@@ -2,8 +2,11 @@
 <template>
   <div id="public" class="col-md-12">
     <h2>Public</h2>
-    <Message v-for="message in messages" :message="message">
-    </Message>
+
+    <div class="card">
+      <Message v-for="message in messages" :message="message">
+      </Message>
+    </div>
   </div>
 </template>
 
