@@ -1,18 +1,11 @@
 
 <template>
   <div class="media">
-    <img :src="profile_image">
-  </img>
-
+    <img class="mr-3 w-25" :src="profile_image"> <!-- alt="Generic placeholder image" -->
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
-
-      <span v-html="content_text()"></span>
-
-
-      <p>
-        {{ message.value.content.type() }}
-      </p>
+      <p>{{ message.value.content.type() }}</p>
+      <div v-html="content_text()"></div>
     </div>
   </div>
 </template>
@@ -36,16 +29,23 @@ export default {
 
     }
   },
-  subscriptions: function () {
-    // var obj = {
-    // debugger
+  // subscriptions: function () {
+  //   return {
+  //     messages: this.$observers.accumulated_observable(
+  //       this.$depject_api.sbot_log[0]( { limit: 10, reverse: true, live: true } )
+  //     )
+  //   }
+  // },
+  // subscriptions: function () {
+  //   // var obj = {
+  //   // debugger
 
-    // profile_image: Rx.Observable.bindCallback( this.api.avatar_image[0].bind(this) )('@ywmhh72dezK+GrK+/QiYOJ0dKWVuGA/AkpOB/wrWTgk=.ed25519')
-    // }
-    // // debugger
-    //
-    // return obj
-  },
+  //   // profile_image: Rx.Observable.bindCallback( this.api.avatar_image[0].bind(this) )('@ywmhh72dezK+GrK+/QiYOJ0dKWVuGA/AkpOB/wrWTgk=.ed25519')
+  //   // }
+  //   // // debugger
+  //   //
+  //   // return obj
+  // },
   computed: {
     profile_image: function(){
       return vm.$depject_api.blob_url[0]("&aIbhv+YRJ85BAWzI1oCwa9716L5pdvMliMdh4KOT+SE=.sha256") }
@@ -60,6 +60,9 @@ export default {
     content_text()
     {
       return md.block( this.message.value.content.text() )
+    },
+    cb(shit){
+      console.log(shit)
     }
   },
   updated() {
@@ -69,6 +72,14 @@ export default {
     )
 
 
+  },
+  mounted() {
+    
+    this.$depject_api.signifier[0](
+      this.message.value.author(), this.cb
+    )
+    window.message = this.message
+    console.log('this.message.value', this.message.value)
   }
 }
 
