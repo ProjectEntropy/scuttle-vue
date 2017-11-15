@@ -1,7 +1,7 @@
 
 <template>
-  <div class="media">
-    <img class="mr-3 rounded " style="max-width: 60px; " :src="image_url">
+  <div class="media mt-3 col-sm-8">
+    <img class="pr-3 rounded " style="max-width: 60px; " :src="image_url">
     <div class="media-body col-sm-9">
       <h5 class="mt-0 text-truncate">{{ author }}</h5>
 
@@ -11,6 +11,11 @@
         {{ message.value.content.type() }}
       </p>
     </div>
+
+    {{ relatedMessages.length }} replies:
+    <message v-for="message in relatedMessages" :message="message">
+    </message>
+
     <hr/>
   </div>
 </template>
@@ -30,7 +35,7 @@ export default {
     return {
       author: "...",
       image_url: "http://via.placeholder.com/90x90",
-      relatedMessages: {}
+      relatedMessages: []
     }
   },
 
@@ -42,14 +47,15 @@ export default {
     },
 
     setRelatedMessages(err, a){
-      // debugger
+
       if(err) {
         console.log('message.vue.setRelatedMessages.err', err)
       }
-      if(a === null) { return }
+      // console.log(a)
 
       // debugger
-      this.relatedMessages = a
+      if(a)
+        this.relatedMessages = a.every(function(e){ nn(e) })
     },
 
     // Get markdown formatted version of message content

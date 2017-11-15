@@ -39,6 +39,8 @@ exports.create = function (api) {
 
   return {
     getThread: function (root, cb) {
+
+      // debugger
       //in this case, it's inconvienent that panel only takes
       //a stream. maybe it would be better to accept an array?
       api.sbot_get(root, function (err, value) {
