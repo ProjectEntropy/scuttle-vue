@@ -29,14 +29,33 @@ export default {
   data () {
     return {
       author: "...",
-      image_url: "http://via.placeholder.com/90x90"
+      image_url: "http://via.placeholder.com/90x90",
+      relatedMessages: {}
     }
   },
+
   methods: {
     setAuthor(err, a){
       if(a[0] == null)
         return
       this.author = nn( a[0] ).name()
+    },
+
+    setRelatedMessages(err, a){
+      debugger
+      if(err) {
+        console.log('message.vue.setRelatedMessages.err', err)
+      }
+      if(a === null) { return }
+
+      debugger
+      this.relatedMessages = a[0]
+    },
+
+    set_image_url(err, a){
+      console.log("Set image URL")
+      console.log(err, a)
+      // this.image_url = a
     },
 
     // Get markdown formatted version of message content
@@ -49,7 +68,11 @@ export default {
     // author name
     this.$depject_api.signifier[0](
       this.message.value.author(), this.setAuthor
-    ),
+    )
+
+    this.$depject_api.sbot_relatedMessages_get[0](
+      this.message.key(), this.setRelatedMessages
+    )
 
     this.image_url = this.$depject_api.avatar_image[0](
       this.message.value.author()
