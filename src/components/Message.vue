@@ -1,11 +1,25 @@
 
 <template>
   <div class="media">
+<<<<<<< HEAD
     <img class="mr-3 w-25" :src="profile_image"> <!-- alt="Generic placeholder image" -->
     <div class="media-body">
       <h5 class="mt-0">{{ author }}</h5>
       <p>{{ message.value.content.type() }}</p>
       <div v-html="content_text()"></div>
+=======
+    <img :src="image_url"></img>
+
+
+    <div class="media-body">
+      <h5 class="mt-0">{{ author }}</h5>
+
+      <span v-html="content_text()"></span>
+
+      <p>
+        {{ message.value.content.type() }}
+      </p>
+>>>>>>> b65df85068d01bbc7fd6b0ba8686cccbae6928ee
     </div>
   </div>
 </template>
@@ -24,11 +38,10 @@ export default {
   data () {
     return {
       author: "...",
-      image_url: "http://via.placeholder.com/90x90",
-      api: this.$depject_api,
-
+      image_url: "http://via.placeholder.com/90x90"
     }
   },
+<<<<<<< HEAD
   // subscriptions: function () {
   //   return {
   //     messages: this.$observers.accumulated_observable(
@@ -46,9 +59,13 @@ export default {
   //   //
   //   // return obj
   // },
+=======
+>>>>>>> b65df85068d01bbc7fd6b0ba8686cccbae6928ee
   computed: {
-    profile_image: function(){
-      return vm.$depject_api.blob_url[0]("&aIbhv+YRJ85BAWzI1oCwa9716L5pdvMliMdh4KOT+SE=.sha256") }
+    // profile_image: function(){
+    //   // Get blob for about image
+    //   // return this.$depject_api.avatar[0]("@TXKFQehlyoSn8UJAIVP/k2BjFINC591MlBC2e2d24mA=.ed25519")}
+    // }
   },
   methods: {
     setAuthor(err, a){
@@ -56,6 +73,13 @@ export default {
         return
       this.author = nn( a[0] ).name()
     },
+
+    set_image_url(err, a){
+      console.log("Set image URL")
+      console.log(err, a)
+      // this.image_url = a
+    },
+
     // Get markdown formatted version of message content
     content_text()
     {
@@ -69,17 +93,13 @@ export default {
     // author name
     this.$depject_api.signifier[0](
       this.message.value.author(), this.setAuthor
-    )
+    ),
 
-
-  },
-  mounted() {
-    
-    this.$depject_api.signifier[0](
-      this.message.value.author(), this.cb
+    // this.$depject_api.avatar[0]("@TXKFQehlyoSn8UJAIVP/k2BjFINC591MlBC2e2d24mA=.ed25519")}
+    // this.image_url = "face"
+    this.image_url = this.$depject_api.avatar_image[0](
+      this.message.value.author(), this.set_image_url, this.set_image_url
     )
-    window.message = this.message
-    console.log('this.message.value', this.message.value)
   }
 }
 
