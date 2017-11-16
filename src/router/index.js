@@ -24,21 +24,5 @@ export default new Router({
       name: 'invite_show',
       component: Invite
     }
-    // ,
-    // {
-    //   path: '/invite/:part_1/:part_2',
-    //   name: 'invite_show',
-    //   component: Invite
-    // },
-    // {
-    //   path: '/invite/:part_1/:part_2/:part_3',
-    //   name: 'invite_show',
-    //   component: Invite
-    // },
-    // {
-    //   path: '/invite/:part_1/:part_2/:part_3/:part_4',
-    //   name: 'invite_show',
-    //   component: Invite
-    // }
   ]
 })

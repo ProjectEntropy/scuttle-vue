@@ -6,12 +6,9 @@
       <h5 class="mt-0">
         <router-link :to="{ name: 'show', params: { hash: message.value.author() }}">{{ author }}</router-link>
 
-
         <span class="text-muted">
           {{ message.value.content.type() }}
-          <strong v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</strong>
-          <timeago :since="message.value.timestamp()" :auto-update="60"></timeago>
-          <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>
+          <span class="text-dark" v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</span>
         </span>
       </h5>
 
@@ -20,11 +17,18 @@
       <p v-if="raw">
         <pre v-html="content_json()"></pre>
       </p>
+
+      <div class="float-right text-muted">
+        <timeago :since="message.value.timestamp()" :auto-update="60"></timeago>
+        |
+        <span >{{ relatedMessages.length }} replies</span>
+        <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>
+      </div>
+      <message v-for="mess in relatedMessages" :message="mess">
+      </message>
+
     </div>
 
-    {{ relatedMessages.length }}
-    <message v-for="mess in relatedMessages" :message="mess">
-    </message>
 
   </div>
 </template>
@@ -64,7 +68,8 @@ export default {
       if(a.length > 1)
       {
         console.log(a)
-        this.relatedMessages = a.map(function(e){ return nn(e) })
+        // TODO: This seems to cause problems
+        // this.relatedMessages = a.map(function(e){ return nn(e) })
       }
 
     },
