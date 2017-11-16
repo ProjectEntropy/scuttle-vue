@@ -7,6 +7,21 @@
 A scuttlebutt decentralised network browser client designed to be easy to change the templates for, while trying to abstract away the raw data stuff.
 
 
+## Important bits
+
+- [x] Depject API
+- [ ] Use latest patchcore (does not currently browserify)
+- [x] Public feed
+- [x] Profile feed
+- [ ] Threaded replies
+- [ ] Notifications
+- [ ] Cache expensive sbot lookups - webworker?
+- [ ] POST MESSAGES
+- [ ] Invite UI
+- [ ] Settings page
+- [ ] Multiple pub connections
+- [ ] Browser -> Browser direct gossip
+
 
 ## Build Setup
 
