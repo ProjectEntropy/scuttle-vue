@@ -50,8 +50,8 @@ export default {
       // ought to be able to filter with lt lte gt gte on timestamp but it doesn't seem to work
       // eg gte: 1510707316, lte: 1510756323,
       this.$depject_api.sbot_createLogStream[0](
-          { limit: 60, reverse: true, live: false }
-        )
+        { limit: 60, reverse: true, live: true }
+      )
 
       // this.$depject_api.sbot_getLatest[0](
       //   function (e) {

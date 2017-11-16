@@ -37,6 +37,7 @@ module.exports = {
     connection_status: 'map'
   },
   gives: {
+    raw_sbot: true,
     sbot_blobs_add: true,
     sbot_links: true,
     sbot_links2: true,
@@ -99,6 +100,7 @@ module.exports = {
     var feed = createFeed(internal, keys, {remote: true})
 
     return {
+      raw_sbot: function() { return sbot },
       connection_status: connection_status,
       sbot_blobs_add: rec.sink(function (cb)  {
         return sbot.blobs.add(cb)
@@ -123,6 +125,10 @@ module.exports = {
       sbot_createLogStream: rec.source(function (opts) {
         return sbot.createLogStream(opts)
       }),
+      // sbot_createFeedStream: rec.source(function (opts) {
+      //   return sbot.createFeedStream(opts)
+      // }),
+
       sbot_getLatest: rec.source(function (opts) {
         return sbot.getLatest(opts)
       }),

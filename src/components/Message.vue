@@ -4,7 +4,9 @@
     <img class="pr-3 rounded " style="max-width: 60px; " :src="image_url">
     <div class="media-body">
       <h5 class="mt-0">
-        {{ author }}
+        <router-link :to="{ name: 'show', params: { hash: message.value.author() }}">{{ author }}</router-link>
+
+
         <span class="text-muted">
           {{ message.value.content.type() }}
           <strong v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</strong>

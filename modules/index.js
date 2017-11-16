@@ -1,5 +1,4 @@
 module.exports = {
-  // "app.js":  require('./app.js'),
   // "theme.js": require('./theme.js'),
   "blob-url.js":  require('./blob-url.js'),
   "crypto.js":  require('./crypto.js'),
@@ -17,7 +16,7 @@ module.exports = {
   // "compose.js":  require('./compose.js'),
   // "feed.js":  require('./feed.js'),
   // "follow.js":  require('./follow.js'),
-  // "invite.js":  require('./invite.js'),
+  "invite.js":  require('./invite.js'),
   // "star.js":  require('./star.js'),
   "markdown.js":  require('./markdown.js'),
   // "message-link.js":  require('./message-link.js'),
@@ -30,7 +29,7 @@ module.exports = {
   // "private.js":  require('./private.js'),
   // "public.js":  require('./public.js'),
   // "network.js":  require('./network.js'),
-  // "relationships.js":  require('./relationships.js'),
+  "relationships.js":  require('./relationships.js'),
   // "suggest-mentions.js":  require('./suggest-mentions.js'),
   "thread.js":  require('./thread.js'),
   // "timestamp.js":  require('./timestamp.js'),

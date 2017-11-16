@@ -1,5 +1,7 @@
 var SourceObserver = {};
 var pull = require('pull-stream')
+// var Sort = require('pull-sort')
+
 import Rx from 'rxjs/RX'
 import { Observable } from 'rxjs/Observable'
 
@@ -15,7 +17,9 @@ SourceObserver.install = function(Vue, options){
           source,
           pull.drain(msg => observer.next(msg))
         )
-      }).scan((accumulator, newMsg) => [nn(newMsg), ...accumulator], [])
+      }).scan((accumulator, newMsg) => {
+        return [nn(newMsg), ...accumulator]
+      }, [])
     },
 
     cb_obs(f, args){
