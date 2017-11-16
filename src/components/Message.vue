@@ -67,9 +67,10 @@ export default {
 
       if(a.length > 1)
       {
-        console.log(a)
-        // TODO: This seems to cause problems
-        // this.relatedMessages = a.map(function(e){ return nn(e) })
+        // console.log(a)
+        // remove last item as it's a ref to this message
+        a.splice(-1,1)
+        this.relatedMessages = a.map(function(e){ return nn(e) })
       }
 
     },
