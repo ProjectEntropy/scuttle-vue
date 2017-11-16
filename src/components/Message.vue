@@ -8,19 +8,21 @@
         <span class="text-muted">
           {{ message.value.content.type() }}
           <strong v-if="message.value.content.channel()">#{{ message.value.content.channel() }}</strong>
-          {{ message.value.timestamp() | formatDate}}
+          <timeago :since="message.value.timestamp()" :auto-update="60"></timeago>
           <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>
         </span>
       </h5>
 
       <p v-html="content_text_md()"></p>
-      
-      <pre v-if="raw" v-html="content_json()"></pre>
+
+      <p v-if="raw">
+        <pre v-html="content_json()"></pre>
+      </p>
     </div>
-    
+
     {{ relatedMessages.length }}
-    <!-- <message v-for="mess in relatedMessages" :message="mess">
-    </message> -->
+    <message v-for="mess in relatedMessages" :message="mess">
+    </message>
 
   </div>
 </template>
@@ -52,12 +54,17 @@ export default {
       this.author = nn( a[0] ).name()
     },
 
-    setRelatedMessages(err, a){
+    setRelatedMessages(err, a, rel){
       if(err) {
         console.log('message.vue.setRelatedMessages.err', err)
       }
-      if(a)
-        this.relatedMessages = a.every(function(e){ return nn(e) })
+
+      if(a.length > 1)
+      {
+        console.log(a)
+        this.relatedMessages = a.map(function(e){ return nn(e) })
+      }
+
     },
 
     // Get raw pretty printed json version of message
@@ -65,16 +72,13 @@ export default {
     {
       return JSON.stringify(this.message.value(), null, 2)
     },
-    // Get text formatted version of message content
-    content_text()
-    {
-      return this.message.value.content.text()
-    },
+
     // Get markdown formatted version of message content
     content_text_md()
     {
       return md.block( this.message.value.content.text() )
     }
+
   },
   updated() {
     // author name
@@ -91,18 +95,16 @@ export default {
     this.image_url = this.$depject_api.avatar_image[0](
       this.message.value.author()
     )
+
+    // this.content_text_md = this.$depject_api.markdown[0](this.message.value.content())
   }
 }
 
 </script>
 
 <style scoped>
-.media-body p{
-
+.media-body p {
   white-space: wrap;
   text-overflow: ellipsis;
 }
-/* .message{
-
-} */
 </style>

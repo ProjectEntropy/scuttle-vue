@@ -54,7 +54,7 @@ module.exports = {
     sbot_friends_get: true,
     sbot_signs_get: true,
     sbot_relatedMessages_get: true,
-    sbot_the_log: true,
+    sbot_createLogStream: true,
     sbot_getLatest: true
   },
 
@@ -120,7 +120,7 @@ module.exports = {
           })
         )
       }),
-      sbot_the_log: rec.source(function (opts) {
+      sbot_createLogStream: rec.source(function (opts) {
         return sbot.createLogStream(opts)
       }),
       sbot_getLatest: rec.source(function (opts) {
@@ -184,9 +184,9 @@ module.exports = {
         return sbot.relatedMessages(opts, cb)
       }),
       // relatedMessages({ id: "%A8H47IPGp2sxPYYFunKU+9mU52R7pvs8eKEsuFzaWXI=.sha256", count: true }, function (err, msgs) {
-        
+
       //     console.log(JSON.stringify(msgs, null, 2))
-        
+
       //   })
       sbot_signs_get: rec.async(function (opts, cb) {
         return sbot.signs.get(opts, cb)

@@ -4,13 +4,13 @@ var pull = require('pull-stream')
 var Scroller = require('pull-scroll')
 
 exports.needs = {
-  message_render: 'first',
-  message_compose: 'first',
+  // message_render: 'first',
+  // message_compose: 'first',
   sbot_log: 'first',
 }
 
 exports.gives = {
-screen_view: true
+  screen_view: true
 }
 
 exports.create = function (api) {

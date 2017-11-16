@@ -10,13 +10,13 @@ function map(ary, iter) {
 }
 
 exports.needs = {
-  message_render: 'first',
-  message_compose: 'first',
-  message_unbox: 'first',
-  sbot_log: 'first',
-  sbot_whoami: 'first',
-  avatar_image_link: 'first',
-  emoji_url: 'first'
+  // message_render: 'first',
+  // message_compose: 'first',
+  // message_unbox: 'first',
+  // sbot_log: 'first',
+  // sbot_whoami: 'first',
+  // avatar_image_link: 'first',
+  // emoji_url: 'first'
 }
 
 exports.gives = {
@@ -44,7 +44,7 @@ exports.create = function (api) {
       if(path === 'Direct') {
         var id = require('../keys').id
         var compose = api.message_compose(
-          {type: 'post', recps: [], private: true}, 
+          {type: 'post', recps: [], private: true},
             {
             prepublish: function (msg) {
               msg.recps = [id].concat(msg.mentions).filter(function (e) {
@@ -57,19 +57,19 @@ exports.create = function (api) {
             placeholder: 'Write a private message. Use @person to select recipients.'
           }
           )
-    
+
         var content = h('div.column.scroller__content')
         var div = h('div.column.scroller',
           {style: {'overflow':'auto'}},
           h('div.scroller__wrapper', compose, content)
         )
-    
+
         pull(
           api.sbot_log({old: false}),
           unbox(),
           Scroller(div, content, api.message_render, true, false)
         )
-    
+
         pull(
           u.next(api.sbot_log, {reverse: true, limit: 1000}),
           unbox(),
@@ -77,7 +77,7 @@ exports.create = function (api) {
             if(err) throw err
           })
         )
-    
+
         return div
       }
     },
@@ -100,4 +100,3 @@ exports.create = function (api) {
   }
 
 }
-

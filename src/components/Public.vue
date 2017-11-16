@@ -1,10 +1,7 @@
 <template>
   <div id="public" class="row">
     <div class="col-md-12">
-      <!-- <h2>Public feed</h2> -->
-
       <Message v-for="message in messages" :message="message"></Message>
-      <!-- <infinite-loading @infinite="infiniteHandler"></infinite-loading> -->
     </div>
   </div>
 </template>
@@ -47,12 +44,12 @@ export default {
       //     { id: '@dfCIY3rP5idQFdjuOHrBJqrv6EgsSiNyn1NKz87UTJw=.ed25519', lte: 1502583510, limit: 20, reverse: false, live: true } // fillCache: true = leveldb LRU-cache filled with read data
       //   )
 
-      // dangerousbeans: sbot_the_log appears to output the same feed as sbot_log
+      // dangerousbeans: createLogStream appears to output the same feed as sbot_log
       // but without being wrapped in a pull-stream
       // see sbot.js line 114 to 124
       // ought to be able to filter with lt lte gt gte on timestamp but it doesn't seem to work
-      // eg gte: 1510707316, lte: 1510756323, 
-      this.$depject_api.sbot_the_log[0](
+      // eg gte: 1510707316, lte: 1510756323,
+      this.$depject_api.sbot_createLogStream[0](
           { limit: 60, reverse: true, live: false }
         )
 

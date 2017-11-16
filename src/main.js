@@ -5,6 +5,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import Public from './components/Public.vue'
 
+// Vue extensions
+import VueTimeago from 'vue-timeago'
+Vue.use(VueTimeago, {
+  name: 'timeago',
+  locale: 'en-GB',
+  locales: {
+    'en-GB': require('vue-timeago/locales/en-GB.json')
+  }
+})
+
 // Routing
 import router from './router'
 

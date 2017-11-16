@@ -22,9 +22,9 @@ function once (cont) {
 }
 
 exports.needs = {
-  message_render: 'first',
+  // message_render: 'first',
   message_name: 'first',
-  message_compose: 'first',
+  // message_compose: 'first',
   message_unbox: 'first',
   sbot_get: 'first',
   sbot_links: 'first'

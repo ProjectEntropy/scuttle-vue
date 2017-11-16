@@ -21,6 +21,7 @@ exports.create = function (api) {
   }
 
   return function (content) {
+    // debugger
     if('string' === typeof content)
       content = {text: content}
     //handle patchwork style mentions.
@@ -43,4 +44,3 @@ exports.create = function (api) {
 
   }
 }
-

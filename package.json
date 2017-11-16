@@ -90,6 +90,7 @@
     "vue-infinite-loading": "^2.2.1",
     "vue-router": "^3.0.1",
     "vue-rx": "^5.0.0",
+    "vue-timeago": "^3.4.0",
     "xstream-from-pull-stream": "^1.1.0"
   },
   "devDependencies": {
