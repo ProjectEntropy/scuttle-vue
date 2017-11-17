@@ -24,8 +24,9 @@
         <span >{{ relatedMessages.length }} replies</span>
         <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>
       </div>
-      <message v-for="mess in relatedMessages" :message="mess">
-      </message>
+      <!-- {{ relatedMessages }} -->
+      <!-- <message v-for="mess in relatedMessages" :message="mess">
+      </message> -->
 
     </div>
 
@@ -69,8 +70,8 @@ export default {
       {
         // console.log(a)
         // remove last item as it's a ref to this message
-        a.splice(-1,1)
-        this.relatedMessages = a.map(function(e){ return nn(e) })
+        a = a.splice(-1,1)
+        this.relatedMessages = a//.map(function(e){ return nn(e) })
       }
 
     },
@@ -94,12 +95,12 @@ export default {
       this.message.value.author(), this.setAuthor
     )
 
-    if(this.message.key())
-    {
-      this.$depject_api.getThread[0](
-        this.message.key(), this.setRelatedMessages
-      )
-    }
+    // if(this.message.key())
+    // {
+    //   this.$depject_api.getThread[0](
+    //     this.message.key(), this.setRelatedMessages
+    //   )
+    // }
     this.image_url = this.$depject_api.avatar_image[0](
       this.message.value.author()
     )
