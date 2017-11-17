@@ -57,11 +57,15 @@ cat ~/.ssb/private
 
 # place these in browser storage (until this part is built in the app)
 
+# On the settings page:
+
+# Copy & paste your keypair from ~.ssb/secret
+
 localStorage.setItem("/.ssb/secret", '{"curve":"ed25519","public":"IZckcDcgB....."}')
 
-localStorage.setItem("browser/.ssb/secret", '{"curve":"ed25519","public":"IZckcDcgB....."}')
+# Paste the websocket address from running in terminal:
+
+sbot ws.getAdress
 
 localStorage.setItem("remote", 'ws://localhost:8989~shs:TXKFQ.....=')
-```
-
 ```

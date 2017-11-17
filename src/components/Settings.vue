@@ -22,23 +22,26 @@ export default {
   data() {
     return {
       identity: {
-        key: "/.ssb/secret"
+        key: '/.ssb/secret'
       },
       remoteWebsocket: {
-        key: "remote"
+        key: 'remote'
       }
-    };
+    }
   },
   created() {
     this.identity.value =
-      localStorage["/.ssb/secret"] || "the secret goes here";
+      localStorage["/.ssb/secret"] || "the secret goes here"
     this.remoteWebsocket.value =
-      localStorage["remote"] || "sbot ws.getAddress goes here";
+      localStorage["remote"] || "sbot ws.getAddress goes here"
   },
   methods: {
     updateValue(key, value) {
-      localStorage[key] = value;
+      if(key === 'remote') {
+        value = value.replace(/['"]+/g, '')
+      }
+      localStorage[key] = value
     }
   }
-};
+}
 </script>
