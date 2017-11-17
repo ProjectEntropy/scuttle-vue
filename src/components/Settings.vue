@@ -7,13 +7,13 @@
           <span class="input-group-addon" id="identity-value">
             secret
           </span>
-          <textarea class="form-control"
+          <b-form-textarea class="form-control"
                     v-model.trim="identity.value"
                     @input="updateValue(identity.key, $event.target.value)"
                     placeholder="~/.ssb secret"
                     aria-label="~/.ssb secret"
                     aria-describedby="identity-value">
-          </textarea>
+          </b-form-textarea>
         </div>
       </p>
       <p>
@@ -22,14 +22,14 @@
           <span class="input-group-addon" id="remoteWebsocket-value">
             {{remoteWebsocket.key}}
           </span>
-          <textarea class="form-control"
+          <b-form-textarea class="form-control"
                     v-model.trim="remoteWebsocket.value"
                     @input="updateValue(remoteWebsocket.key,
                     $event.target.value)"
                     placeholder="websocket url"
                     aria-label="remoteWebsocket-value"
                     aria-describedby="remoteWebsocket-value">
-          </textarea>
+          </b-form-textarea>
         </div>
       </p>
     </div>
@@ -50,9 +50,9 @@ export default {
   },
   created() {
     this.identity.value =
-      localStorage["/.ssb/secret"] || "the secret goes here"
+      localStorage["/.ssb/secret"] || 'the secret goes here'
     this.remoteWebsocket.value =
-      localStorage["remote"] || "sbot ws.getAddress goes here"
+      localStorage["remote"] || 'sbot ws.getAddress goes here'
   },
   methods: {
     updateValue(key, value) {

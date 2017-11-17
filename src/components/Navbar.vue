@@ -21,7 +21,7 @@
       <b-navbar-nav>
         <b-nav-item :to="{ name: 'home' }">Public</b-nav-item>
         <b-nav-item :to="{ name: 'profile' }">Profile</b-nav-item>
-        <b-nav-item href="#" disabled>Scroller</b-nav-item>
+        <b-nav-item :to="{ name: 'scroller' }" disabled>Scroller</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -34,11 +34,11 @@
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
           <template slot="button-content">
-            <em>User</em>
+            User
           </template>
-          <b-nav-item :to="{ name: 'profile' }">Profile</b-nav-item>
-
-          <b-dropdown-item disabled href="#">Signout</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'profile' }">Profile</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'settings' }">Settings</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'signout' }" disabled>Signout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
