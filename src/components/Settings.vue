@@ -1,20 +1,37 @@
 <template>
-  <div>
-    <h5>Identity</h5>
-    <div class="input-group">
-      <span class="input-group-addon" id="identity-key">key</span>
-      <input type="text" class="form-control" v-model.trim="identity.key" placeholder="~/.ssb secret localStorage key" aria-label="~/.ssb secret localStorage key" aria-describedby="identity-key">
-      <span class="input-group-addon" id="identity-value">value</span>
-      <input type="text" class="form-control" v-model.trim="identity.value" @input="updateValue(identity.key, $event.target.value)" placeholder="~/.ssb secret" aria-label="~/.ssb secret" aria-describedby="identity-value">
-    </div>
-    <h5>Websocket to sbot</h5>
-    <div class="input-group">
-      <span class="input-group-addon" id="remoteWebsocket-key">key</span>
-      <input type="text" class="form-control" v-model.trim="remoteWebsocket.key" placeholder="remote websocket localStorage key" aria-label="remote websocket localStorage key" aria-describedby="identity-key">
-      <span class="input-group-addon" id="remoteWebsocket-value">value</span>
-      <input type="text" class="form-control" v-model.trim="remoteWebsocket.value" @input="updateValue(remoteWebsocket.key, $event.target.value)" placeholder="websocket url" aria-label="remoteWebsocket-value" aria-describedby="remoteWebsocket-value">
-    </div>
-  </div>
+  <fieldset>
+    <p>
+      <h5>Private Identity</h5>
+      <div class="input-group">
+        <span class="input-group-addon" id="identity-value">
+          secret
+        </span>
+        <textarea class="form-control"
+                  v-model.trim="identity.value"
+                  @input="updateValue(identity.key, $event.target.value)"
+                  placeholder="~/.ssb secret"
+                  aria-label="~/.ssb secret"
+                  aria-describedby="identity-value">
+        </textarea>
+      </div>
+    </p>
+    <p>
+      <h5>Websocket URL</h5>
+      <div class="input-group">
+        <span class="input-group-addon" id="remoteWebsocket-value">
+          {{remoteWebsocket.key}}
+        </span>
+        <textarea class="form-control"
+                  v-model.trim="remoteWebsocket.value"
+                  @input="updateValue(remoteWebsocket.key,
+                  $event.target.value)"
+                  placeholder="websocket url"
+                  aria-label="remoteWebsocket-value"
+                  aria-describedby="remoteWebsocket-value">
+        </textarea>
+      </div>
+    </p>
+  </fieldset>
 </template>
 
 <script>
