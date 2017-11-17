@@ -7,14 +7,11 @@
           <li class="nav-item active">
             <a class="nav-link" href="#/profile">Profile</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#/settings">Settings</a>
+          </li>
         </ul>
-
-        <div class="my-2 my-lg-0">
-          Settings
-        </div>
       </span>
-
-
     </nav>
 </template>
 

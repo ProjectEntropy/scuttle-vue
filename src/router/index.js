@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Public from './../components/Public.vue'
 import Profile from './../components/Profile.vue'
 import Invite from './../components/Invite.vue'
+import Settings from './../components/Settings.vue'
 import Infinitely from './../components/Infinitely.vue'
 
 Vue.use(Router)
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Public
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings
     },
     {
       path: '/view/:hash',
