@@ -14,6 +14,8 @@ Vue.use(VueTimeago, {
     'en-GB': require('vue-timeago/locales/en-GB.json')
   }
 })
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
 
 // Routing
 import router from './router'

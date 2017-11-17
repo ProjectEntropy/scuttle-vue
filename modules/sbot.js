@@ -56,6 +56,7 @@ module.exports = {
     sbot_signs_get: true,
     sbot_relatedMessages_get: true,
     sbot_createLogStream: true,
+    sbot_createHotStream: true,
     sbot_getLatest: true
   },
 
@@ -125,10 +126,9 @@ module.exports = {
       sbot_createLogStream: rec.source(function (opts) {
         return sbot.createLogStream(opts)
       }),
-      // sbot_createFeedStream: rec.source(function (opts) {
-      //   return sbot.createFeedStream(opts)
-      // }),
-
+      sbot_createHotStream: rec.source(function (opts) {
+        return sbot.createLogStream(opts)
+      }),
       sbot_getLatest: rec.source(function (opts) {
         return sbot.getLatest(opts)
       }),
