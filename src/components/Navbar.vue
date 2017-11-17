@@ -1,6 +1,6 @@
 <template>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-      <span>
+    <nav class="navbar navbar-toggleable-xl navbar-light bg-light">
+      <div class="container">
         <a class="navbar-brand" href="#/">ScuttleVue❈</a>
 
         <ul class="navbar-nav mr-auto">
@@ -11,7 +11,7 @@
             <a class="nav-link" href="#/settings">Settings</a>
           </li>
         </ul>
-      </span>
+      </div>
     </nav>
 </template>
 
