@@ -32,6 +32,17 @@
           </b-form-textarea>
         </div>
       </p>
+      <p>
+        A fresh keypair is generated automatically on first load. 
+        If you have an existing scuttleverse identity, you can paste it in above.
+      </p>
+      <p>
+        If you're running sbot locally you will find your keypair in ~.ssb/secret.
+        Please back up your secret securely. Otherwise you could lose that identity.
+      </p>
+      <p>
+        Be careful to never share the private part of the keypair with anyone. They could impersonate you!
+      </p>
     </div>
   </fieldset>
 </template>
