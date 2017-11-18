@@ -19,7 +19,7 @@
       </p>
 
       <div class="float-right text-muted">
-        <timeago :since="message.value.timestamp()" :auto-update="60"></timeago>
+        <timeago v-if="message.value.timestamp()" :since="message.value.timestamp()" :auto-update="60"></timeago>
 
         <span v-if="relatedMessages.length > 0">| {{ relatedMessages.length }} replies</span>
         <button type="button" class="btn btn-outline-info btn-sm" @click="raw = !raw">Raw</button>

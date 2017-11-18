@@ -133,6 +133,8 @@ module.exports = {
         return sbot.getLatest(opts)
       }),
       sbot_user_feed: rec.source(function (opts) {
+        console.log("sbot_user_feed")
+        console.log(opts)
         return sbot.createUserStream(opts)
       }),
       sbot_fulltext_search: rec.source(function (opts) {

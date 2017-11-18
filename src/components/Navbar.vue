@@ -1,19 +1,4 @@
 <template>
-    <!-- <header class="navbar navbar-toggleable-xl navbar-light ">
-      <div class="container">
-        <a class="navbar-brand" href="#/"></a>
-
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link class="nav-link" to="profile">Profile</router-link>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#/settings">Settings</a>
-          </li>
-        </ul>
-      </div>
-    </header> -->
-
   <b-navbar toggleable="md" type="light" variant="white" :sticky="true">
     <b-navbar-brand :to="{ name: 'home' }">ScuttleVue❈</b-navbar-brand>
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
