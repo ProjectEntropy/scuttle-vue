@@ -6,6 +6,7 @@
       <b-navbar-nav>
         <b-nav-item :to="{ name: 'home' }">Public</b-nav-item>
         <b-nav-item :to="{ name: 'profile' }">Profile</b-nav-item>
+        <b-nav-item :to="{ name: 'hot' }">Hot</b-nav-item>
         <b-nav-item :to="{ name: 'scroller' }" disabled>Scroller</b-nav-item>
       </b-navbar-nav>
 

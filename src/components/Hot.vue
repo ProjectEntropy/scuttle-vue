@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-12">
+      <h4>HOT: {{messages.length}}</h4>
       <Message v-for="message in messages" :message="message"></Message>
     </div>
   </div>
@@ -8,28 +9,19 @@
 
 <script>
 import Message from "./Message.vue"
-import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
   name: 'public',
   components: {
-    Message,
-    InfiniteLoading
+    Message
   },
   data() {
     return {
-      list: [],
-      lastMsg: {}
+      messages: []
     }
   },
-  subscriptions: function () {
-    return {
-      messages: this.$observers.accumulated_observable(
-        this.$depject_api.sbot_createLogStream[0](
-          { limit: 60, reverse: true, live: true }
-        )
-      )
-    }
+  created(){
+    this.$observers.pull_into(this.messages, this.$depject_api.sbot_log[0]({ limit: 60, reverse: true, live: true }))
   }
 }
 </script>

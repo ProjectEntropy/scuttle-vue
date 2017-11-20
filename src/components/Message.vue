@@ -68,7 +68,6 @@ export default {
 
       if(a.length > 1)
       {
-        // console.log(a)
         // remove last item as it's a ref to this message
         a = a.splice(-1,1)
         this.relatedMessages = a//.map(function(e){ return nn(e) })
@@ -89,7 +88,7 @@ export default {
     }
 
   },
-  updated() {
+  mounted() {
     // author name
     this.$depject_api.signifier[0](
       this.message.value.author(), this.setAuthor

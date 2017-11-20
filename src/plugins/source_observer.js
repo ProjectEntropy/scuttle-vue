@@ -22,6 +22,19 @@ SourceObserver.install = function(Vue, options){
       }, [])
     },
 
+    // Given a collection, drain a pullstream into it
+    pull_into(collection, source)
+    {
+      pull(
+        source,
+        pull.drain( function(msg) {
+          if(msg.sync)
+            return
+          collection.push(nn(msg))
+        })
+      )
+    },
+
     cb_obs(f, args){
       return Rx.Observable.bindCallback(f)(args)
     }
