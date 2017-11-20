@@ -7,6 +7,7 @@
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -o -c 1 -a localhost",
+    "start": "npm-run-all --parallel watchify serve",
     "dev": "npm-run-all --parallel watchify serve",
     "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] -e src/main.js |  > dist/build.js",
     "deploy": "node ./node_modules/vue-gh-pages/index.js"

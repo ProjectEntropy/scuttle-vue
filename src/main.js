@@ -20,6 +20,44 @@ Vue.use(BootstrapVue)
 // Routing
 import router from './router'
 
+console.log('router', router)
+
+// router.beforeRouteLeave((to, from, next) => {
+//   const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
+//   if (answer) {
+//     next()
+//   } else {
+//     next(false)
+//   }
+// })
+
+router.beforeEach((to, from, next) => {
+  console.log('router.beforeEach this', this)
+  console.log('router.beforeEach((to)', to)
+  console.log('router.beforeEach((from)', from)
+  console.log('router.beforeEach((next)', next)
+
+  // var path = to.path
+  // if(to.path.substring(0, 6) === '/view/') {
+  //   console.log(to.path.substring(0, 6))
+  // }
+  // to.path = '/view'
+  // var re = new RegExp('\/view\/((([%&@]|%25)(?:[A-Za-z0-9\/+]|%2[Ff]|%2[Bb]){43}(?:=|%3D)\.(?:sha256|ed25519))(?:\.([^?]*))?|(\/.*?))(?:\?(.*))?')
+  // var match = re.match(to.path)
+  // console.log('match', match)
+
+  // router.push({ path: `/viewer`, fullPath: `/viewer` })
+  // var id = 'anid'
+  // router.replace({ name: 'viewer' })
+  // router.replace({ path: `/public/${id}` })
+  // debugger
+
+
+
+  next()
+  // ...
+})
+
 // Observable stuff
 import Rx from 'rxjs/RX'
 import VueRx from 'vue-rx'

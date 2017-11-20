@@ -1,4 +1,3 @@
-
 <template>
   <div class="media mt-3 col-sm-12 message">
     <img class="pr-3 rounded " style="max-width: 60px; " :src="image_url">
@@ -55,35 +54,31 @@ export default {
   },
 
   methods: {
-    setAuthor(err, a){
+    setAuthor(err, a) {
       if(a[0] == null)
         return
       this.author = nn( a[0] ).name()
     },
 
-    setRelatedMessages(err, a, rel){
+    setRelatedMessages(err, a, rel) {
       if(err) {
         console.log('message.vue.setRelatedMessages.err', err)
       }
-
-      if(a.length > 1)
-      {
+      if(a.length > 1) {
+        // console.log(a)
         // remove last item as it's a ref to this message
         a = a.splice(-1,1)
         this.relatedMessages = a//.map(function(e){ return nn(e) })
       }
-
     },
 
     // Get raw pretty printed json version of message
-    content_json()
-    {
+    content_json() {
       return JSON.stringify(this.message.value(), null, 2)
     },
 
     // Get markdown formatted version of message content
-    content_text_md()
-    {
+    content_text_md() {
       return md.block( this.message.value.content.text() )
     }
 

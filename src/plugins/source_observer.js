@@ -1,4 +1,4 @@
-var SourceObserver = {};
+var SourceObserver = {}
 var pull = require('pull-stream')
 // var Sort = require('pull-sort')
 
@@ -6,10 +6,10 @@ import Rx from 'rxjs/RX'
 import { Observable } from 'rxjs/Observable'
 
 // safe nul checking thing
-const nn = require('nevernull');
+const nn = require('nevernull')
 
 
-SourceObserver.install = function(Vue, options){
+SourceObserver.install = function(Vue, options) {
   var observers = {
     accumulated_observable(source){
       return Rx.Observable.create(function (observer) {
@@ -23,8 +23,7 @@ SourceObserver.install = function(Vue, options){
     },
 
     // Given a collection, drain a pullstream into it
-    pull_into(collection, source)
-    {
+    pull_into(collection, source) {
       pull(
         source,
         pull.drain( function(msg) {
@@ -35,12 +34,12 @@ SourceObserver.install = function(Vue, options){
       )
     },
 
-    cb_obs(f, args){
+    cb_obs(f, args) {
       return Rx.Observable.bindCallback(f)(args)
     }
   }
 
-  Vue.prototype.$observers = observers;
-};
+  Vue.prototype.$observers = observers
+}
 
-export default SourceObserver;
+export default SourceObserver

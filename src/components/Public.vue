@@ -22,21 +22,21 @@ export default {
       lastMsg: {}
     }
   },
-  methods: {
-    infiniteHandler($state) {
-      setTimeout(() => {
-        console.log('messages', this.messages)
-        // this.lastMsg = this.messages.slice(-1)[0]() // a timestamp 1510740987518
-        console.log('last message', this.lastMsg)
-        const temp = []
-        for (let i = this.list.length + 1; i <= this.list.length + 20; i++) {
-          temp.push(i)
-        }
-        this.list = this.list.concat(temp);
-        $state.loaded()
-      }, 1000)
-    }
-  },
+  // methods: {
+  //   infiniteHandler($state) {
+  //     setTimeout(() => {
+  //       console.log('messages', this.messages)
+  //       // this.lastMsg = this.messages.slice(-1)[0]() // a timestamp 1510740987518
+  //       console.log('last message', this.lastMsg)
+  //       const temp = []
+  //       for (let i = this.list.length + 1; i <= this.list.length + 20; i++) {
+  //         temp.push(i)
+  //       }
+  //       this.list = this.list.concat(temp);
+  //       $state.loaded()
+  //     }, 1000)
+  //   }
+  // },
   subscriptions: function () {
     return {
       messages: this.$observers.accumulated_observable(
