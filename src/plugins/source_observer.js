@@ -18,7 +18,7 @@ SourceObserver.install = function(Vue, options) {
           pull.drain(msg => observer.next(msg))
         )
       }).scan((accumulator, newMsg) => {
-        return [nn(newMsg), ...accumulator]
+        return [...accumulator, nn(newMsg)]
       }, [])
     },
 
