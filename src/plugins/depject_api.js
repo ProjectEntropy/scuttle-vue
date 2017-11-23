@@ -10,6 +10,7 @@ DepjectAPI.install = function(Vue, options){
   )
 
   Vue.prototype.$dethrashed_signifier = memo(depject_api.signifier[0])
+  Vue.prototype.$dethrashed_avatar_image = memo(depject_api.avatar_image[0])
   Vue.prototype.$depject_api = depject_api;
 };
 

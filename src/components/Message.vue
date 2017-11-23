@@ -96,7 +96,7 @@ export default {
     //     this.message.key(), this.setRelatedMessages
     //   )
     // }
-    this.image_url = this.$depject_api.avatar_image[0](
+    this.image_url = this.$dethrashed_avatar_image(
       this.message.value.author()
     )
 
