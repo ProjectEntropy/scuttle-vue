@@ -85,7 +85,8 @@ export default {
   },
   mounted() {
     // author name
-    this.$depject_api.signifier[0](
+
+    this.$dethrashed_signifier(
       this.message.value.author(), this.setAuthor
     )
 
