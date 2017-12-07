@@ -83,9 +83,13 @@ export default {
     }
 
   },
+  updated() {
+    this.image_url = this.$dethrashed_avatar_image(
+      this.message.value.author()
+    )
+  },
   mounted() {
     // author name
-
     this.$dethrashed_signifier(
       this.message.value.author(), this.setAuthor
     )
@@ -96,9 +100,7 @@ export default {
     //     this.message.key(), this.setRelatedMessages
     //   )
     // }
-    this.image_url = this.$dethrashed_avatar_image(
-      this.message.value.author()
-    )
+
 
     // this.content_text_md = this.$depject_api.markdown[0](this.message.value.content())
   }

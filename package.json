@@ -1,8 +1,8 @@
 {
-  "name": "etherstreams",
+  "name": "scuttleVue",
   "version": "0.1.0",
   "description": "A Vue.js project",
-  "author": "Joran <joran.k@gmail.com>",
+  "contributors": [ "Jolyon <jolyon@conduce.co>", "Joran <joran.k@gmail.com>" ],
   "private": true,
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",

@@ -21,7 +21,7 @@ export default {
     }
   },
   created(){
-    this.$observers.pull_into(this.messages, this.$depject_api.sbot_log[0]({ limit: 60, reverse: true, live: true }))
+    this.$observers.pull_into(this.messages, this.$depject_api.sbot_log[0]({ limit: 10, reverse: true, live: true }))
   }
 }
 </script>
