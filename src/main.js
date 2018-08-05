@@ -17,6 +17,7 @@ Vue.use(VueTimeago, {
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
+
 // Routing
 import router from './router'
 
