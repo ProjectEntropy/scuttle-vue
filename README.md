@@ -12,7 +12,7 @@ A scuttlebutt decentralised network browser client designed to be easy to change
 ## Important bits
 
 - [x] Depject API
-- [ ] POST MESSAGES
+- [x] POST MESSAGES
 - [ ] Use latest patchcore (does not currently browserify)
 - [x] Public feed
 - [x] Profile feed

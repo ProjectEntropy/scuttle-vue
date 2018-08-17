@@ -1,7 +1,12 @@
 <template>
   <div id="profile" class="row">
     <div class="col-md-12">
-      <Message v-for="message in messages" :message="message"></Message>
+      <b-form-textarea id="textarea1"
+                       v-model="text"
+                       placeholder="Enter something"
+                       :rows="3"
+                       :max-rows="6">
+      </b-form-textarea>
     </div>
   </div>
 </template>

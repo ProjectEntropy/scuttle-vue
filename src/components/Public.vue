@@ -1,6 +1,8 @@
 <template>
   <div id="public" class="row">
     <div class="col-md-12">
+      <Composer></Composer>
+      
       <Message v-for="message in messages" :message="message"></Message>
     </div>
   </div>
@@ -8,13 +10,16 @@
 
 <script>
 import Message from "./Message.vue"
+import Composer from "./Composer.vue"
+
 import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
   name: 'public',
   components: {
     Message,
-    InfiniteLoading
+    InfiniteLoading,
+    Composer
   },
   data() {
     return {

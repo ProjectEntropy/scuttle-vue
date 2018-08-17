@@ -3,7 +3,7 @@
     <img class="pr-3 rounded " style="max-width: 60px; " :src="image_url">
     <div class="media-body">
       <h5 class="mt-0">
-        <router-link :to="{ params: { hash: message.value.author() }}">{{ author }}</router-link>
+        <router-link :to="{ params: { hash: message.value.author() }}"><span class="">{{ author }}</span></router-link>
 
         <span class="text-muted">
           {{ message.value.content.type() }}
@@ -17,11 +17,11 @@
         <pre v-html="content_json()"></pre>
       </p>
 
-      <div class="float-right text-muted">
+      <div class="float-right text-muted small">
         <timeago v-if="message.value.timestamp()" :since="message.value.timestamp()" :auto-update="60"></timeago>
 
         <span v-if="relatedMessages.length > 0">| {{ relatedMessages.length }} replies</span>
-        <a class="" @click="raw = !raw">Raw</a>
+        <!-- <a class="" @click="raw = !raw">Raw</a> -->
       </div>
       <!-- {{ relatedMessages }} -->
       <!-- <message v-for="mess in relatedMessages" :message="mess">
