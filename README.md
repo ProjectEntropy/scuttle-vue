@@ -1,8 +1,10 @@
 # ScuttleVue
 
+> A VueJS based scuttlebutt client based on Minbay and depject
+
+
 `ssb://%8vv8XCSh/Xbq1iEiJ0Kucl746jltMGPOduqOE3CYQ3Q=.sha256`
 
-> A VueJS based scuttlebutt client based on Minbay and depject
 
 A scuttlebutt decentralised network browser client designed to be easy to change the templates for, while trying to abstract away the raw data stuff.
 
@@ -19,7 +21,7 @@ A scuttlebutt decentralised network browser client designed to be easy to change
 - [ ] Cache expensive sbot lookups - webworker?
 
 - [ ] Invite UI
-- [ ] Settings page
+- [x] Settings page
 - [ ] Multiple pub connections
 - [ ] Browser -> Browser direct gossip
 
@@ -44,29 +46,24 @@ npm run build
 # install scuttlebutt
 npm i scuttlebot@latest -g
 
-# spin up sbot
-sbot server
-
-# in another process, accept an invite and sync to the scuttleverse
-sbot invite.accept "ws://the_pub_you_got_an_invite_from~shs:TXKFQehlyoS_invite_code_blah_blah="
-
-# get your local sbot websocket address
-sbot getAddress
-
-# get your public/private key
-cat ~/.ssb/private
-
-# place these in browser storage (until this part is built in the app)
-
-# On the settings page:
-
-# Copy & paste your keypair from ~/.ssb/secret
-
-localStorage.setItem("/.ssb/secret", '{"curve":"ed25519","public":"IZckcDcgB....."}')
-
-# Paste the websocket address from running in terminal:
-
-sbot ws.getAdress
-
-localStorage.setItem("remote", 'ws://localhost:8989~shs:TXKFQ.....=')
+# spin up sbot (allowing localhost invite generation)
+sbot server --allowPrivate
 ```
+
+## Web setup
+
+Navigate to: http://localhost:8080/#/settings
+
+*Get your key JSON*
+``` bash
+cat ~/.ssb/secret
+```
+
+
+*Your localhost "Remote" address*
+
+``` bash
+sbot invite.create --modern
+```
+
+
