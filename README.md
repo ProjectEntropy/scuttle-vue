@@ -10,13 +10,14 @@ A scuttlebutt decentralised network browser client designed to be easy to change
 ## Important bits
 
 - [x] Depject API
+- [ ] POST MESSAGES
 - [ ] Use latest patchcore (does not currently browserify)
 - [x] Public feed
 - [x] Profile feed
 - [ ] Threaded replies
 - [ ] Notifications
 - [ ] Cache expensive sbot lookups - webworker?
-- [ ] POST MESSAGES
+
 - [ ] Invite UI
 - [ ] Settings page
 - [ ] Multiple pub connections
@@ -59,7 +60,7 @@ cat ~/.ssb/private
 
 # On the settings page:
 
-# Copy & paste your keypair from ~.ssb/secret
+# Copy & paste your keypair from ~/.ssb/secret
 
 localStorage.setItem("/.ssb/secret", '{"curve":"ed25519","public":"IZckcDcgB....."}')
 

@@ -81,10 +81,10 @@ exports.create = function (api) {
 
 
     avatar_image: function (author, classes) {
-      console.log("ready", ready)
-      console.log("avatars", avatars)
-      console.log("author", author)
-      console.log("avatars[author]", avatars[author])
+      // console.log("ready", ready)
+      // console.log("avatars", avatars)
+      // console.log("author", author)
+      // console.log("avatars[author]", avatars[author])
 
       var img = ready && avatars[author] ? api.blob_url(avatars[author].image) : "http://via.placeholder.com/90x90"
 
