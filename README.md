@@ -12,6 +12,7 @@ A scuttlebutt decentralised network browser client designed to be easy to change
 ## Important bits
 
 - [x] Depject API
+- [x] Pullstream to RX adapters
 - [x] POST MESSAGES
 - [ ] Use latest patchcore (does not currently browserify)
 - [x] Public feed
@@ -65,5 +66,6 @@ cat ~/.ssb/secret
 ``` bash
 sbot invite.create --modern
 ```
+Use the first part of this address, leave off the not-bold invite code part
 
-
+**ws://localhost:8989~shs:TXKFQehlyoSn8UJAIVP/k2BjFINC591Mlface2d24mA=**:xoAi7+wpLAQ0e0PXjKQAjz+ityAIRByCiQGbG9nPe6c=

@@ -30,9 +30,9 @@ export default {
   },
   created() {
     this.identity.value =
-      localStorage["/.ssb/secret"] || "the secret goes here"
+      localStorage["/.ssb/secret"] || ""
     this.remoteWebsocket.value =
-      localStorage["remote"] || "sbot ws.getAddress goes here"
+      localStorage["remote"] || ""
   },
   methods: {
     updateValue(key, value) {

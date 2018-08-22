@@ -33,7 +33,7 @@ export default {
       messages: this.$observers.accumulated_observable(
       
         this.$depject_api.sbot_createLogStream[0](
-          { limit: 60, reverse: true, live: true }
+          { limit: 5, reverse: true, live: true }
         )
 
       )
