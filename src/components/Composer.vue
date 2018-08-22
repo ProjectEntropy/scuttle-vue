@@ -50,10 +50,12 @@ export default {
   methods: {
     post()
     {
-      // console.log("about to publish" + this.message)
-      var message_json = { type: 'post', text: this.message }
-
-      this.$depject_api.publish[0](message_json, )
+      this.$depject_api.publish[0](
+        { 
+          type: 'post', 
+          text: this.message 
+        }, 
+      )
     }
   }
 }

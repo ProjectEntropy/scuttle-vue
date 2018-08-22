@@ -6,8 +6,6 @@
     "Jolyon <jolyon@conduce.co>",
     "Joran <joran.k@gmail.com>"
   ],
-  "wst": "/dist/",
-  "private": true,
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o build.js",
     "serve": "http-server -o -c 1 -a localhost",
